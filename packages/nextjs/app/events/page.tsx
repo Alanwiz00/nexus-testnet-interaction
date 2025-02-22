@@ -14,18 +14,18 @@ const Events: NextPage = () => {
   });
 
   // // SellTokens Events
-  // const { data: sellTokenEvents, isLoading: isSellEventsLoading } = useScaffoldEventHistory({
-  //   contractName: "Vendor",
-  //   eventName: "SellTokens",
-  //   fromBlock: 0n,
-  // });
+  const { data: sellTokenEvents, isLoading: isSellEventsLoading } = useScaffoldEventHistory({
+    contractName: "Vendor",
+    eventName: "SellTokens",
+    fromBlock: 0n,
+  });
 
   return (
     <div className="flex items-center flex-col flex-grow pt-10">
       {/* BuyTokens Events */}
       <div>
         <div className="text-center mb-4">
-          <span className="block text-2xl font-bold">Buy Token Events</span>
+          <span className="block text-2xl font-bold">Wallet Buys</span>
         </div>
         {isBuyEventsLoading ? (
           <div className="flex justify-center items-center mt-8">
@@ -36,16 +36,16 @@ const Events: NextPage = () => {
             <table className="table table-zebra w-full">
               <thead>
                 <tr>
-                  <th className="bg-primary">Buyer</th>
-                  <th className="bg-primary">Amount of Tokens</th>
-                  <th className="bg-primary">Amount of ETH</th>
+                  <th className="bg-primary">Wallet</th>
+                  <th className="bg-primary">Amount of GLD</th>
+                  <th className="bg-primary">Amount of NEX</th>
                 </tr>
               </thead>
               <tbody>
                 {!buyTokenEvents || buyTokenEvents.length === 0 ? (
                   <tr>
                     <td colSpan={3} className="text-center">
-                      No events found
+                      No transaction found
                     </td>
                   </tr>
                 ) : (
@@ -68,9 +68,9 @@ const Events: NextPage = () => {
       </div>
 
       {/* SellTokens Events */}
-      {/* <div className="mt-14">
+      <div className="mt-14">
         <div className="text-center mb-4">
-          <span className="block text-2xl font-bold">Sell Token Events</span>
+          <span className="block text-2xl font-bold">Wallet Sells</span>
         </div>
         {isSellEventsLoading ? (
           <div className="flex justify-center items-center mt-8">
@@ -110,7 +110,7 @@ const Events: NextPage = () => {
             </table>
           </div>
         )}
-      </div> */}
+      </div>
     </div>
   );
 };

@@ -22,7 +22,7 @@ const deployYourToken: DeployFunction = async function (hre: HardhatRuntimeEnvir
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("YourToken", {
+  await deploy("Gold", {
     from: deployer,
     // Contract constructor arguments
     args: [],
